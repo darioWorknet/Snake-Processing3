@@ -10,9 +10,12 @@ class Food{
     this.fPos.x = Pos.x;
     this.fPos.y = Pos.y;
     
-    this.r = (int)random(255);
-    this.g = (int)random(255);
-    this.b = (int)random(255);
+    //this.r = (int)random(255);
+    //this.g = (int)random(255);
+    //this.b = (int)random(255);
+    this.r = 141;
+    this.g = 182;
+    this.b = 0;
   }
   
     
@@ -30,7 +33,7 @@ boolean validPos(PVector newPos){
   
   for (PVector b : body.snake){
     if ((b.x == newPos.x) && (b.y == newPos.y)){
-      System.out.println("ASHDKFHSKJDHFKAHSDHFALHSDJFHAKSHDFKJHASKDHFK");
+      System.out.println("Bug");
       return false;
     }
   }

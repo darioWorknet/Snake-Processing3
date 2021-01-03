@@ -61,7 +61,8 @@ class Body{
         popMatrix();
         }
         
-        setSpeed(item);
+        //setSpeed(item);
+        this.size = item;
 
   }
   
@@ -96,14 +97,23 @@ class Body{
     return false;
   }
   
-  private void setSpeed(int item){
-        if (item > 7){
-          gameSpeed = 11;
-        } else if (item > 14){
-          gameSpeed = 15;
-        } else if (item > 19){
-          gameSpeed = 20;
+  private void setSpeed(){
+        if (size == 7){
+          gameSpeed += 1;
+        } else if (size == 11){
+          gameSpeed += 1;
+        } else if (size == 15){
+          gameSpeed += 1;
+        } else if (size == 19){
+          gameSpeed += 1;
+        } else if (size == 20){
+          gameSpeed += 1;
+        } else if (size == 25){
+          gameSpeed += 1;
+        } else if (size == 30){
+          gameSpeed += 1;
         }
+        System.out.println(gameSpeed);
   }
   
   PVector getColor (int item){

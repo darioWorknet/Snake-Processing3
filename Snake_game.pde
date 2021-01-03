@@ -9,11 +9,11 @@ int gameSpeed;
 
 
 void setup(){
-  gameSpeed = 10;
+  gameSpeed = 7;
   int initSnakeSize = 4;
   frameRate (8);
   size (800,800);
-  rows = 16;
+  rows = 20;
   cellSize = width / rows;
   b = new Board(rows, cellSize, width); 
   h = new Head((int)random(initSnakeSize,rows-initSnakeSize),(int)random(initSnakeSize,rows-initSnakeSize)); //definition of the snake starting point
@@ -26,25 +26,24 @@ void setup(){
 }
 
 
-
 void draw() {
 
-  if (h.gameOver() == false){
-  frameRate(gameSpeed);
-  background(100);
-  h.show(direction); //modify pos and show 
-  f.show();
-  b.show();
+  if (!h.gameOver()){
+    frameRate(gameSpeed);
+    background(150);
+    h.show(direction); //modify pos and show 
+    f.show();
+    b.show();
   
-        if(body.touched()){
-        System.out.println("GAME OVER");
-        stop();
-      }
-  
-    if(f.eaten()){
+    if(body.touched()){
+    System.out.println("GAME OVER");
+    stop();
+    } else if(f.eaten()){
       f.setPos(f.getPos());
       body.grow();
-  }
+      body.setSpeed();
+    }
+    
   }else{
     System.out.println("GAME OVER");
     h.show(h.lastPos_x, h.lastPos_y);
@@ -77,7 +76,7 @@ void keyPressed(){
       direction = 3;
     }
     default:{
-      System.out.println("CONTROL ONLY ARROWS");
+      System.out.println("CONTROL WITH ARROWS ONLY");
     break;
     }
   }
